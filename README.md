@@ -8,33 +8,15 @@ Take and reproduce a snapshot of a hyperapp state as a JSON. Provides `wrapView`
 
 ```ts
 import { h, text, app } from 'hyperapp';
-import * as Snapshot from './hyperapp-snapshot';
+import * as Snapshot from 'hyperapp-snapshot';
 
-const AddTodo = (state) => ({
-  ...state,
-  value: '',
-  todos: state.todos.concat(state.value),
-});
-
-const NewValue = (state, event) => ({
-  ...state,
-  value: event.target.value,
-});
-
-const view = ({ todos, value }) =>
+const view = (model) =>
   h('main', {}, [
-    h('h1', {}, text('To do list')),
-    h('input', { type: 'text', oninput: NewValue, value }),
-    h(
-      'ul',
-      {},
-      todos.map((todo) => h('li', {}, text(todo)))
-    ),
-    h('button', { onclick: AddTodo }, text('New!')),
+    // Your app view
   ]);
 
 app({
-  init: { todos: [], value: '' },
+  init: initialModel,
   view: Snapshot.wrapView(view),
   /* Or else:
   view: Snapshot.wrapView(view, JSON.parse)
@@ -44,5 +26,3 @@ app({
   node: document.getElementById('app'),
 });
 ```
-
-NOTE: Modified from the example in [the README of hyperapp](https://github.com/jorgebucaran/hyperapp/blob/f9518be1ada51ae993b062eac264efa25a8cd16c/README.md).
