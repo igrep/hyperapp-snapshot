@@ -1,0 +1,39 @@
+{
+  "name": "hyperapp-snapshot",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Take and reproduce a snapshot of a hyperapp as a JSON.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igrep/hyperapp-snapshot.git"
+  },
+  "keywords": [
+    "hyperapp",
+    "debug"
+  ],
+  "author": "YAMAMOTO Yuji",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/igrep/hyperapp-snapshot/issues"
+  },
+  "homepage": "https://github.com/igrep/hyperapp-snapshot#readme",
+  "dependencies": {
+    "hyperapp": "^2.0.20"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts",
+    "README.md"
+  ]
+}
